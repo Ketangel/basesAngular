@@ -1,0 +1,33 @@
+<style>
+    nav{
+        display: flex;
+        justify-content: space-around;
+        background-color: #212121;
+        padding: 10px;
+    }
+
+    a{
+        color: white;
+        text-decoration: none;
+    }
+
+    nav a.active{
+        color: red;
+    }
+
+</style>
+
+<nav>
+     <!-- router link tradicional  simple no tiene las llave 
+      
+      routerLinkActive="active" 
+     [routerLinkActiveOptions]="{exact: true}"> ayuda a angular a identificar que la ruta sea exactamente igual
+     
+     -->
+    <a 
+        routerLink="/"  
+        routerLinkActive="active" 
+        [routerLinkActiveOptions]="{exact: true}">Contador</a>   
+
+    <a [routerLink]="['/hero']" [routerLinkActive]="'active'" >Hero</a>
+</nav>
