@@ -4,9 +4,28 @@
 <section class="row">
     <div class="col-12 col-sm-6" >
         <h3>Agregar</h3>
-        <input type="text" class="form-control" placeholder="Name Person">
-        <input type="number" class="form-control" placeholder="Power">
-        <button class="mt-2 btn btn-primary">agregar</button>
+
+        <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Name Person"
+        [value]="name()" 
+        (change)="name.set(txtName.value)"
+        (input)="name.set(txtName.value)"
+        #txtName
+        >
+
+        <input 
+        type="number" 
+        class="form-control" 
+        placeholder="Power"
+        [value]="power()"
+        (change)="power.set(+txtPower.value)"
+        (input)="power.set(+txtPower.value)"
+        #txtPower
+        >
+
+        <button class="mt-2 btn btn-primary"  (click)="addCharacter()">agregar</button>
     </div>
 
     <div class="col-12 col-sm-6">
