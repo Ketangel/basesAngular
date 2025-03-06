@@ -1,0 +1,22 @@
+<h1>Dragon ball</h1>
+<hr>
+
+<section class="row">
+    <div class="col-12 col-sm-6" >
+        <h3>Agregar</h3>
+        <input type="text" class="form-control" placeholder="Name Person">
+        <input type="number" class="form-control" placeholder="Power">
+        <button class="mt-2 btn btn-primary">agregar</button>
+    </div>
+
+    <div class="col-12 col-sm-6">
+        <ul>
+            @for (characters of characters(); track characters.id; let idx= $index) {
+                <li >
+                    <strong> {{idx}} - {{characters.name}}</strong>
+                    <span class="text-danger"> ({{characters.power}}) </span>
+                </li>
+            }
+        </ul>
+    </div>
+</section>

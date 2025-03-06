@@ -6,10 +6,14 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   imports: [
     RouterLink, // biblioteca de router link - simple
     RouterLinkActive, //
+
   ],
   templateUrl: './navbar.component.html',
   styles: ``
 })
 export class NavbarComponent {
+
+
+
 
 }
