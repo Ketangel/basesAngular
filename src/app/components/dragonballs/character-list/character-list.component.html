@@ -1,0 +1,15 @@
+
+<h3>Listado Fuertes</h3>
+<ul>
+    @for (characters of characters(); track characters.id; let idx= $index) {
+        @if (characters.power > 5000) {
+            <li >
+                <strong> {{idx}} - {{characters.name}}</strong>
+                <span 
+                    [class.text-danger] = 'characters.power > 9000'
+                    [class.text-primary] = 'characters.power < 9000'
+                        > ({{characters.power}}) </span>
+            </li>
+        }
+    }
+</ul>
