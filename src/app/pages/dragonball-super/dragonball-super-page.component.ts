@@ -16,8 +16,15 @@ export class DragonballSuperPageComponent {
   name = signal('');
   power = signal(0);
 
-  characters = signal<Characters[]>([
+  characterss = signal<Characters[]>([
     {id: 0,name: 'Goku',power: 9001},
   ]);
+
+
+  addCharacter(character: Characters){
+  this.characterss.update( (list) => [...list,character]);
+  }
+
+
 
 }

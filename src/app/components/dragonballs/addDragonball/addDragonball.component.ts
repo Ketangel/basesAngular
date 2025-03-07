@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, output, signal } from '@angular/core';
 import { Characters } from '../../../interfaces/character.interfaces';
 
 @Component({
@@ -12,24 +12,22 @@ export class AddDragonballComponent {
   name = signal('');
   power = signal(0);
 
-  characters = signal<Characters[]>([
-    {id: 0,name: 'Goku',power: 9001},
-  ]);
 
-
+  newCharacter = output<Characters>();
 
   addCharacter() {
     if(!this.name() || !this.power() || this.power() <= 0 ){
       return;
     }
     const newCharacter: Characters = {
-      id: this.characters().length + 1,
+      id: Math.floor(Math.random() * 1000),
       name: this.name(),
       power: this.power()
     }
     // this.characters().push(newCharacter); metodo tradicional
     // this.characters.update((list) => [...list,newCharacter]);
-    console.log(newCharacter);
+    
+    this.newCharacter.emit(newCharacter);
     this.restField();
   }
 
