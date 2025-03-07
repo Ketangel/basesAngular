@@ -1,7 +1,8 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { CharacterListComponent } from "../../components/dragonballs/character-list/character-list.component";
 import { Characters } from '../../interfaces/character.interfaces';
 import { AddDragonballComponent } from "../../components/dragonballs/addDragonball/addDragonball.component";
+import { DrangonballService } from '../../services/drangonball.service';
 
 
 
@@ -13,17 +14,13 @@ import { AddDragonballComponent } from "../../components/dragonballs/addDragonba
 })
 export class DragonballSuperPageComponent {
 
-  name = signal('');
-  power = signal(0);
+  // //forma tradicional
+  // constructor( 
+  //   private dragonBallSuper: DrangonballService,
+  // ){}
 
-  characterss = signal<Characters[]>([
-    {id: 0,name: 'Goku',power: 9001},
-  ]);
-
-
-  addCharacter(character: Characters){
-  this.characterss.update( (list) => [...list,character]);
-  }
+  // nueva forma
+  public dragonBallSuperService = inject(DrangonballService)
 
 
 
